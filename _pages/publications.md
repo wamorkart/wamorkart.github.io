@@ -2,8 +2,11 @@
 layout: page
 permalink: /publications/
 title: Publications
-description: This section contains publications in which I was a primary analyzer or made significant contributions. I am an author on 559 papers by the CMS and ATLAS collaborations, as of 5 October 2023.
-years: [2019, 2020, 2021, 2022, 2023]
+description: This section contains publications in which I was a primary analyzer or made significant contributions. 
+
+<!-- <h5>I am an author on 559 papers by the CMS and ATLAS collaborations, as of 5 October 2023.</h5> -->
+
+years: [2019, 2020, 2021, 2022, 2023, 2024, 2025]
 nav: true
 nav_order: 3
 ---

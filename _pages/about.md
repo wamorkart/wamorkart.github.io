@@ -18,7 +18,7 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 Hello!
-I’m a particle physicist and a postdoctoral researcher at the University of California, Berekeley and a part of the <a href="https://www.physics.lbl.gov/machinelearning/">Machine Learning for Fundamental Physics group</a> at Lawrence National Laboratory. I perform my research in <a href="https://nachmangroup.github.io/index.html">Dr. Benjamin Nachman's group</a>.
+I’m a particle physicist and a postdoctoral researcher at Stanford University.
 
 I am interested in developing and applying machine learning techniques and tools to make new discoveries in particle physics and improve our understanding of the fundamental nature of our universe. As a member of the ATLAS collaboration, I work on developing and implementing machine learning methods to study data from the ATLAS experiment at the Large Hadron Collider. 
 
