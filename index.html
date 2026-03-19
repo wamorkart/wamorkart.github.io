@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Tanvi Wamorkar</title>
+
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== Base ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #000;
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== Typography ===== */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-top: 0;
+    }
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+    a:hover { opacity: 0.5; }
+
+    /* ===== Navigation ===== */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: #fff;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .site-nav .brand {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #000;
+    }
+    .site-nav .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0; padding: 0;
+    }
+    .site-nav .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(0,0,0,0.5);
+      letter-spacing: 0.02em;
+    }
+    .site-nav .nav-links a:hover { color: #000; opacity: 1; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background: #000;
+      margin: 4px 0;
+    }
+
+    /* ===== Main ===== */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 5rem 0 3rem;
+    }
+    section:first-child {
+      padding-top: 7rem;
+    }
+
+    /* ===== About ===== */
+    .about-section {
+      max-width: 680px;
+      padding-top: 7rem;
+      padding-bottom: 3rem;
+    }
+    .about-section .bio {
+      font-size: 1.1rem;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .about-section .bio-secondary {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(0,0,0,0.7);
+      margin-bottom: 2rem;
+    }
+
+    /* ===== Social ===== */
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .social-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(0,0,0,0.5);
+    }
+    .social-links a:hover { color: #000; opacity: 1; }
+
+    /* ===== Section header ===== */
+    .section-header {
+      margin-bottom: 2rem;
+    }
+    .section-header h1 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .section-header p {
+      font-size: 0.85rem;
+      color: rgba(0,0,0,0.5);
+      font-weight: 300;
+    }
+    .section-header a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ===== News list ===== */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      max-height: 260px;
+      overflow-y: auto;
+    }
+    .news-item {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .news-date {
+      color: rgba(0,0,0,0.4);
+      white-space: nowrap;
+      min-width: 6.5rem;
+      font-style: italic;
+      font-size: 0.8rem;
+    }
+    .news-item a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: rgba(0,0,0,0.2);
+    }
+    .news-item a:hover {
+      opacity: 0.5;
+      text-decoration-color: rgba(0,0,0,0.5);
+    }
+
+    /* ===== Publications grid ===== */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem 2.5rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* colored label strip instead of image */
+    .card-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.35);
+      margin-bottom: 0.6rem;
+    }
+
+    .project-card .card-body { flex: 1; }
+
+    .project-card .card-body h2 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      line-height: 1.35;
+    }
+
+    .project-card .card-body .year {
+      font-size: 0.78rem;
+      color: rgba(0,0,0,0.4);
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+
+    .project-card .card-body p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: rgba(0,0,0,0.7);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-buttons {
+      display: flex;
+      gap: 0.5rem;
+      margin: 0.75rem 0 0;
+      flex-wrap: wrap;
+    }
+    .card-buttons a {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid rgba(0,0,0,0.2);
+      border-radius: 2px;
+      color: rgba(0,0,0,0.7);
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .card-buttons a:hover {
+      border-color: #000;
+      color: #000;
+      opacity: 1;
+    }
+
+    /* ===== CV section ===== */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem 2.5rem;
+    }
+    .cv-block h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .cv-entry {
+      margin-bottom: 1.25rem;
+    }
+    .cv-entry-title {
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 0.1rem;
+    }
+    .cv-entry-sub {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: rgba(0,0,0,0.6);
+    }
+    .cv-entry-year {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(0,0,0,0.4);
+      font-style: italic;
+      margin-top: 0.1rem;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      padding: 3rem 0;
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(0,0,0,0.3);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .site-nav { padding: 0.85rem 1.5rem; }
+      .site-nav .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        background: #fff;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        flex-direction: column;
+        padding: 1rem 1.5rem;
+        gap: 0.75rem;
+      }
+      .site-nav .nav-links.active { display: flex; }
+      .nav-toggle { display: block; }
+      main { padding: 0 1.5rem; }
+      .about-section { padding-top: 5rem; }
+      .about-section .bio { font-size: 1rem; }
+      .project-grid, .cv-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      section { padding: 3rem 0 2rem; }
+    }
+  </style>
+</head>
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <a class="brand" href="#page-top">Tanvi Wamorkar</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#cv">CV</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- About -->
+    <section id="about" class="about-section">
+      <p class="bio">I'm a particle physicist and postdoctoral researcher at Stanford University, working at the intersection of machine learning and experimental high-energy physics.</p>
+      <p class="bio-secondary">As a member of the ATLAS collaboration, I develop and apply ML methods to study data from the ATLAS experiment at the Large Hadron Collider. Previously, I was a postdoctoral researcher in the ATLAS group at Argonne National Laboratory (2021–2024), where I performed precision measurements of the Standard Model and contributed to the ATLAS Tracker upgrade for the High Luminosity LHC.</p>
+      <p class="bio-secondary">I earned my Ph.D. from Northeastern University under Prof. Toyoko Orimoto, leading the first-ever CMS search for exotic Higgs boson decays into light pseudoscalars via photons. <strong style="font-weight:500;">I'm always happy to collaborate—feel free to reach out!</strong></p>
+      <div class="social-links">
+        <a href="mailto:tanvics@gmail.com">Email</a>
+        <a href="https://github.com/wamorkart" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/tanvi-wamorkar-286a4834" target="_blank">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=NLRqbHMAAAAJ&hl" target="_blank">Google Scholar</a>
+      </div>
+    </section>
+
+    <!-- News -->
+    <section id="news">
+      <div class="section-header">
+        <h1>News</h1>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <span class="news-date">Aug 2025</span>
+          <span>Presented <em>Explicit versus implicit physics priors for separating nearly identical classes</em> at <a href="https://indico.cern.ch/event/1526677/contributions/6531017/attachments/3121968/5536287/ml4jets.tw.22082025.pdf">ML4Jets 2025</a>.</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">Mar 2025</span>
+          <span><a href="https://arxiv.org/abs/2503.20753">Stabilizing Neural Likelihood Ratio Estimation</a> released on arXiv.</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">Mar 2025</span>
+          <span><a href="https://www-h1.desy.de/h1/www/publications/htmlsplit/H1prelim-25-031.long.html">Towards Unfolding All Particles in High Q2 DIS Events</a> released as a preliminary note.</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">Mar 2025</span>
+          <span><a href="https://arxiv.org/abs/2503.09720">Tools for unbinned unfolding</a> released on arXiv.</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">Jun 2024</span>
+          <span>Joined the <a href="https://nachmangroup.github.io/">Nachman Group</a> at LBNL as a postdoctoral researcher.</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">Sep 2023</span>
+          <span>Presented a <a href="https://conference.ippp.dur.ac.uk/event/1128/contributions/6504/">talk</a> at QCD@LHC2023.</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">Sep 2023</span>
+          <span>Presented scope &amp; status of the Pixel Upgrade Project in the US at the Pixel workshop at SLAC.</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">Jun 2023</span>
+          <span>Selected as analysis contact for the WWW triboson measurement using ATLAS Run 3 data.</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">Apr 2023</span>
+          <span>Presented a <a href="https://meetings.aps.org/Meeting/APR23/Session/M12.2">talk</a> at APS April Meeting 2023.</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">Jan 2023</span>
+          <span>Completed ATLAS authorship qualification tasks.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <div class="section-header">
+        <h1>Selected Publications</h1>
+        <p>See my <a href="https://scholar.google.com/citations?user=NLRqbHMAAAAJ&hl">Google Scholar page</a> for a complete list.</p>
+      </div>
+
+      <div class="project-grid">
+
+        <div class="project-card">
+          <div class="card-label">arXiv &middot; 2025</div>
+          <div class="card-body">
+            <h2>Stabilizing Neural Likelihood Ratio Estimation</h2>
+            <div class="year">2025</div>
+            <p>A framework for improving the stability of neural likelihood ratio estimators, with applications in particle physics simulation and inference.</p>
+            <div class="card-buttons">
+              <a href="https://arxiv.org/abs/2503.20753">arXiv</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-label">JINST &middot; 2025</div>
+          <div class="card-body">
+            <h2>Tools for Unbinned Unfolding</h2>
+            <div class="year">2025</div>
+            <p>A collection of tools and techniques for unbinned unfolding in particle physics, enabling high-dimensional measurements free from detector distortions.</p>
+            <div class="card-buttons">
+              <a href="https://arxiv.org/abs/2503.09720">arXiv</a>
+              <a href="https://doi.org/10.1088/1748-0221/20/05/P05034">JINST</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-label">JHEP &middot; 2023</div>
+          <div class="card-body">
+            <h2>Search for Exotic Higgs Decay into Two Light Pseudoscalars with Four Photons</h2>
+            <div class="year">2023</div>
+            <p>The first CMS search for the exotic decay H → aa → 4γ at √s = 13 TeV, exploring a rare and experimentally challenging Higgs boson decay channel.</p>
+            <div class="card-buttons">
+              <a href="https://link.springer.com/article/10.1007/JHEP07(2023)148">JHEP</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-label">JINST &middot; 2021</div>
+          <div class="card-body">
+            <h2>Test Beam Characterization of Sensor Prototypes for the CMS Barrel MIP Timing Detector</h2>
+            <div class="year">2021</div>
+            <p>Characterization of LGAD sensor prototypes for the CMS Barrel MIP Timing Detector using test beam data.</p>
+            <div class="card-buttons">
+              <a href="https://arxiv.org/abs/2104.07786">arXiv</a>
+              <a href="https://doi.org/10.1088/1748-0221/16/07/P07023">JINST</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-label">NIM A &middot; 2021</div>
+          <div class="card-body">
+            <h2>Combined Analysis of HPK 3.1 LGADs for High Volume Quality Control</h2>
+            <div class="year">2021</div>
+            <p>Combined analysis using a proton beam, beta source, and probe station to establish quality control procedures for LGAD sensors at scale.</p>
+            <div class="card-buttons">
+              <a href="https://arxiv.org/abs/2104.08369">arXiv</a>
+              <a href="https://doi.org/10.1016/j.nima.2021.165828">NIM A</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-label">NIM A &middot; 2022</div>
+          <div class="card-body">
+            <h2>The CMS MTD Endcap Timing Layer: Precision Timing with LGADs</h2>
+            <div class="year">2022</div>
+            <p>Development and characterization of the CMS MIP Timing Detector Endcap Timing Layer, providing 40 ps timestamps for charged particles up to η = 3.0.</p>
+            <div class="card-buttons">
+              <a href="https://www.sciencedirect.com/science/article/pii/S0168900222001991">NIM A</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-label">NIM A &middot; 2019</div>
+          <div class="card-body">
+            <h2>Performance of the CMS ECAL Data Acquisition System at LHC Run II</h2>
+            <div class="year">2019</div>
+            <p>The CMS ECAL DAQ system achieved 90.3% data collection efficiency during LHC Run II, including automatic recovery procedures for radiation-induced errors.</p>
+            <div class="card-buttons">
+              <a href="https://www.sciencedirect.com/science/article/pii/S0168900218318990">NIM A</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-label">NIM A &middot; 2019</div>
+          <div class="card-body">
+            <h2>CMS Electromagnetic Calorimeter Calibration and Alignment</h2>
+            <div class="year">2019</div>
+            <p>Inter-calibration of the CMS ECAL energy response using W/Z → e, π⁰/η → γγ, and minimum bias azimuthal symmetry, with Run 2 results.</p>
+            <div class="card-buttons">
+              <a href="https://www.sciencedirect.com/science/article/pii/S016890021831341X">NIM A</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv">
+      <div class="section-header">
+        <h1>CV</h1>
+      </div>
+
+      <div class="cv-grid">
+
+        <div class="cv-block">
+          <h2>Employment</h2>
+          <div class="cv-entry">
+            <div class="cv-entry-title">Postdoctoral Researcher</div>
+            <div class="cv-entry-sub">Stanford University / LBNL — Nachman Group</div>
+            <div class="cv-entry-year">2024 – present</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">Postdoctoral Research Associate, ATLAS</div>
+            <div class="cv-entry-sub">Argonne National Laboratory</div>
+            <div class="cv-entry-year">2021 – 2024</div>
+          </div>
+        </div>
+
+        <div class="cv-block">
+          <h2>Education</h2>
+          <div class="cv-entry">
+            <div class="cv-entry-title">Ph.D. Physics</div>
+            <div class="cv-entry-sub">Northeastern University<br>
+              Thesis: <a href="https://cds.cern.ch/record/2781607" style="text-decoration:underline; text-underline-offset:2px; text-decoration-color:rgba(0,0,0,0.2);">Search for exotic decays of the Higgs boson using photons with CMS</a>
+            </div>
+            <div class="cv-entry-year">2015 – 2021</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">M.Sc. Physics</div>
+            <div class="cv-entry-sub">University of Delhi</div>
+            <div class="cv-entry-year">2012 – 2014</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">B.Sc. Physics</div>
+            <div class="cv-entry-sub">University of Delhi</div>
+            <div class="cv-entry-year">2009 – 2012</div>
+          </div>
+        </div>
+
+        <div class="cv-block">
+          <h2>Awards</h2>
+          <div class="cv-entry">
+            <div class="cv-entry-title">Dissertation Completion Fellowship</div>
+            <div class="cv-entry-year">2020</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">APS DPF Poster Session Award</div>
+            <div class="cv-entry-sub">For LGAD characterization poster at APS DPF</div>
+            <div class="cv-entry-year">2019</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">University Research Association Fellowship</div>
+            <div class="cv-entry-sub">Fermi National Laboratory — CMS timing upgrade</div>
+            <div class="cv-entry-year">2019 – 2020</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">Northeastern University Lawrence Award</div>
+            <div class="cv-entry-sub">Excellence in teaching</div>
+            <div class="cv-entry-year">2017</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">Indira Gandhi Scholarship</div>
+            <div class="cv-entry-sub">M.Sc. Physics</div>
+            <div class="cv-entry-year">2012 – 2014</div>
+          </div>
+        </div>
+
+        <div class="cv-block">
+          <h2>Selected Talks</h2>
+          <div class="cv-entry">
+            <div class="cv-entry-title"><a href="https://indico.cern.ch/event/1526677/contributions/6531017/attachments/3121968/5536287/ml4jets.tw.22082025.pdf">Explicit vs. implicit physics priors</a></div>
+            <div class="cv-entry-sub">ML4Jets 2025</div>
+            <div class="cv-entry-year">2025</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title"><a href="https://conference.ippp.dur.ac.uk/event/1128/contributions/6504/">EW gauge boson production in ATLAS</a></div>
+            <div class="cv-entry-sub">QCD@LHC 2023</div>
+            <div class="cv-entry-year">2023</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title"><a href="https://meetings.aps.org/Meeting/APR23/Session/M12.2">ATLAS ITk Pixel module assembly &amp; testing</a></div>
+            <div class="cv-entry-sub">APS April Meeting 2023</div>
+            <div class="cv-entry-year">2023</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title"><a href="https://indico.cern.ch/event/1030068/contributions/4514229/attachments/2329843/3970730/Higgs2021_Wamorkar.pdf">Exotic Higgs decays at CMS</a></div>
+            <div class="cv-entry-sub">Higgs 2021</div>
+            <div class="cv-entry-year">2021</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title"><a href="https://www.physics.ucsb.edu/news/event/1848">Exotic Higgs decays with photons</a></div>
+            <div class="cv-entry-sub">Special HEP Seminar, UC Santa Barbara</div>
+            <div class="cv-entry-year">2020</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Tanvi Wamorkar &middot; <a href="mailto:tanvics@gmail.com">tanvics@gmail.com</a>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
