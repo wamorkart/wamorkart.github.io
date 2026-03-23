@@ -4,7 +4,7 @@ permalink: /publications/
 title: Publications
 description: This section contains publications in which I was a primary analyzer or made significant contributions.
 years: [2019, 2020, 2021, 2022, 2023, 2025]
-nav: true
+nav: false
 nav_order: 3
 ---
 <!-- _pages/publications.md -->

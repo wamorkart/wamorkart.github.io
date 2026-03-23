@@ -4,9 +4,23 @@
 
 // Typography
 
-p, h1, h2, h3, h4, h5, h6, em, div, li, span, strong {
+body, td, th, tr, p, a {
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+p, em, div, li, span, strong {
   color: var(--global-text-color);
 }
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--global-text-color);
+  font-weight: normal;
+}
+
+h1 { font-size: 32px; text-align: center; }
+h2 { font-size: 22px; }
+h3 { font-size: 14px; font-weight: 700; }
 
 hr {
   border-top: 1px solid var(--global-divider-color);
@@ -23,12 +37,10 @@ table {
 
 a, table.table a {
   color: var(--global-theme-color);
+  text-decoration: none;
   &:hover {
-    color: var(--global-theme-color);
-    text-decoration: underline;
-  }
-  &:hover:after :not(.nav-item.dropdown) {
-    width: 100%;
+    color: var(--global-hover-color);
+    text-decoration: none;
   }
 }
 
@@ -134,74 +146,45 @@ blockquote {
 }
 
 
-// Navbar customization
+// Simple header (replaces Bootstrap navbar)
 
-.navbar {
-  box-shadow: none;
-  border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
-  opacity: 0.95;
-}
-.navbar .dropdown-menu {
-  background-color: var(--global-bg-color);
-  border: 1px solid var(--global-divider-color);
-  a:not(.active) {
-    color: var(--global-text-color);
+.simple-header {
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 0;
+  padding: 18px 0 14px;
+
+  .header-inner {
+    max-width: $max-content-width;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
   }
-  a:hover {
-    color: var(--global-hover-color);
+
+  .header-name a {
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 1.15em;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 400;
+    &:hover { color: var(--global-hover-color); }
   }
-  .dropdown-divider {
-    border-top: 1px solid var(--global-divider-color) !important;
-  }
-}
-.dropdown-item {
-  color: var(--global-text-color);
-    &:hover {
-      color: var(--global-hover-color);
-      background-color: var(--global-bg-color);
-    }
-}
-.navbar.navbar-light {
-  a {
-    &:hover {
-      text-decoration: none;
-    }
-  }
-  .navbar-brand {
-    color: var(--global-text-color);
-  }
-  .navbar-nav .nav-item .nav-link {
-    color: var(--global-text-color);
-    &:hover {
-      color: var(--global-hover-color);
-    }
-  }
-  .navbar-nav .nav-item.active>.nav-link {
-      background-color: inherit;
-      font-weight: bolder;
-      color: var(--global-theme-color);
-      &:hover {
-        color: var(--global-hover-color);
-      }
-  }
-  .navbar-brand.social {
-    padding-bottom: 0;
-    padding-top: 0;
-    font-size: 1.7rem;
+
+  .header-nav {
     a {
-      i::before {
-        color: var(--global-text-color);
-        transition-property: all 0.2s ease-in-out;
-      }
-      &:hover {
-        i::before {
-          color: var(--global-theme-color);
-        }
-      }
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 0.9em;
+      color: #333;
+      text-decoration: none;
+      margin-left: 14px;
+      &:hover { color: var(--global-hover-color); }
     }
   }
 }
+
+// Keep Bootstrap navbar hidden (unused now)
+.navbar { display: none; }
 
 .navbar-toggler {
   .icon-bar {
@@ -273,28 +256,19 @@ blockquote {
 
 
 // Footer
-footer.fixed-bottom {
+footer.fixed-bottom, footer.sticky-bottom {
+  border-top: 1px solid var(--global-divider-color);
   background-color: var(--global-footer-bg-color);
   font-size: 0.75rem;
+  text-align: center;
+  padding: 20px 0;
   .container {
     color: var(--global-footer-text-color);
-    padding-top: 9px;
-    padding-bottom: 8px;
   }
   a {
-    color: var(--global-footer-link-color);
-    &:hover {
-      color: var(--global-theme-color);
-      text-decoration: none;
-    }
+    color: var(--global-footer-text-color);
+    &:hover { color: var(--global-hover-color); }
   }
-}
-
-footer.sticky-bottom {
-  border-top: 1px solid var(--global-divider-color);
-  padding-top: 40px;
-  padding-bottom: 40px;
-  font-size: 0.9rem;
 }
 
 // CV
@@ -503,12 +477,12 @@ footer.sticky-bottom {
         margin-bottom: 0.5rem;
         abbr {
           display: inline-block;
-          background-color: var(--global-theme-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
+          background-color: #e5e5e5;
+          padding: 2px 8px;
           a {
-            color: white;
+            color: var(--global-theme-color);
             &:hover {
+              color: #107896;
               text-decoration: none;
             }
           }
@@ -545,16 +519,15 @@ footer.sticky-bottom {
       }
       .links {
         a.btn {
-          color: var(--global-text-color);
-          border: 1px solid var(--global-text-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
-          padding-top: 0.25rem;
-          padding-bottom: 0.25rem;
-          &:hover {
-            color: var(--global-theme-color);
-            border-color: var(--global-theme-color);
-          }
+          color: var(--global-theme-color);
+          border: none;
+          background: none;
+          box-shadow: none;
+          padding: 0;
+          margin-right: 2px;
+          font-size: 13px;
+          &:hover { color: var(--global-hover-color); }
+          &:not(:last-child)::after { content: ' /'; color: #666; }
         }
       }
       .badges {
