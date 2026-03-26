@@ -1,12 +1,10 @@
 <header class="simple-header">
   <div class="header-inner">
-    <div class="header-name">
-      <a href="{{ '/' | relative_url }}">{{ site.first_name }} {% if site.middle_name %}{{ site.middle_name }} {% endif %}{{ site.last_name }}</a>
-    </div>
     <nav class="header-nav">
       <a href="{{ '/' | relative_url }}">bio</a>
       <a href="{{ '/' | relative_url }}#news">news</a>
       <a href="{{ '/' | relative_url }}#publications">publications</a>
+      <a href="{{ '/' | relative_url }}#blog">blog</a>
       <a href="{{ '/assets/pdf/cv.pdf' | relative_url }}" target="_blank">cv</a>
       {%- assign sorted_pages = site.pages | sort: "nav_order" -%}
       {%- for p in sorted_pages -%}
