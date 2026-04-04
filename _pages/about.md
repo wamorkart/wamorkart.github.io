@@ -8,12 +8,8 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-  # address: >
-  #   <p>Argonne National Lab</p>
-  #   <p>Lemont, IL, USA.</p>
 
-news: true  # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
+years: [2019, 2020, 2021, 2022, 2023, 2025]
 social: true  # includes social icons at the bottom of the page
 ---
 
