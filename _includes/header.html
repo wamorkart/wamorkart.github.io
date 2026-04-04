@@ -1,11 +1,11 @@
 <header class="simple-header">
   <div class="header-inner">
     <nav class="header-nav">
-      <a href="{{ '/' | relative_url }}">bio</a>
-      <a href="{{ '/' | relative_url }}#news">news</a>
-      <a href="{{ '/' | relative_url }}#publications">publications</a>
-      <a href="{{ '/' | relative_url }}#blog">blog</a>
-      <a href="{{ '/assets/pdf/cv.pdf' | relative_url }}" target="_blank">cv</a>
+      <a href="{{ '/' | relative_url }}">About</a>
+      <a href="{{ '/' | relative_url }}#news">News</a>
+      <a href="{{ '/' | relative_url }}#publications">Publications</a>
+      <!-- <a href="{{ '/' | relative_url }}#blog">blog</a> -->
+      <a href="{{ '/assets/pdf/cv.pdf' | relative_url }}" target="_blank">CV</a>
       {%- assign sorted_pages = site.pages | sort: "nav_order" -%}
       {%- for p in sorted_pages -%}
         {%- if p.nav and p.autogen == nil -%}
