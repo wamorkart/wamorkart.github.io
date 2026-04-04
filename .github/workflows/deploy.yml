@@ -38,9 +38,9 @@ jobs:
         echo "DEPLOY_BRANCH=gh-pages" >> $GITHUB_OUTPUT
         echo "******* HARRY POTTER ********"
         echo $GITHUB_OUTPUT
-    - name: Deploy website 
-      run:
+    - name: Deploy website
+      run: |
         echo " bash bin/deploy --verbose ${{ steps.setup.outputs.NO_PUSH }}  --src ${{ steps.setup.outputs.SRC_BRANCH }} --deploy ${{ steps.setup.outputs.DEPLOY_BRANCH }}"
-        yes | bash bin/deploy --verbose ${{ steps.setup.outputs.NO_PUSH }}
-                    --src ${{ steps.setup.outputs.SRC_BRANCH }} 
-                    --deploy ${{ steps.setup.outputs.DEPLOY_BRANCH }} 
+        yes | bash bin/deploy --verbose ${{ steps.setup.outputs.NO_PUSH }} \
+                    --src ${{ steps.setup.outputs.SRC_BRANCH }} \
+                    --deploy ${{ steps.setup.outputs.DEPLOY_BRANCH }}
