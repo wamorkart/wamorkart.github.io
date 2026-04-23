@@ -3,7 +3,7 @@ layout: page
 permalink: /publications/
 title: Publications
 description: This section contains publications in which I was a primary analyzer or made significant contributions.
-years: [2019, 2020, 2021, 2022, 2023, 2025]
+years: [2019, 2020, 2021, 2022, 2023, 2025, 2026]
 nav: false
 nav_order: 3
 ---
