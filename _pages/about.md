@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
 
-years: [2019, 2020, 2021, 2022, 2023, 2025]
+years: [2019, 2020, 2021, 2022, 2023, 2025, 2026]
 social: true  # includes social icons at the bottom of the page
 ---
 
