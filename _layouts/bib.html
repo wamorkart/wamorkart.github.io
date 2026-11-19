@@ -110,18 +110,20 @@
             {%- assign journal_url = doi_id | prepend: 'https://doi.org/' -%}
           {%- endif -%}
         {%- endif -%}
-        {%- if arxiv_id or journal_url or entry.html %}
+        {%- if arxiv_id or journal_url or entry.zenodo or entry.html %}
         <div class="links">
-          {%- if entry.zenodo %}
-          <a href="https://zenodo.org/records/{{ entry.zenodo }}">Zenodo:{{ entry.zenodo }}</a>
-          {%- elsif arxiv_id %}
+          {%- if arxiv_id %}
           <a href="https://arxiv.org/abs/{{ arxiv_id }}">arXiv:{{ arxiv_id }}</a>
           {%- endif -%}
-          {%- if arxiv_id and journal_url %} &middot; {% endif -%}
+          {%- if entry.zenodo %}
+          {%- if arxiv_id %} &middot; {% endif -%}
+          <a href="https://zenodo.org/records/{{ entry.zenodo }}">Zenodo:{{ entry.zenodo }}</a>
+          {%- endif -%}
           {%- if journal_url %}
+          {%- if arxiv_id or entry.zenodo %} &middot; {% endif -%}
           <a href="{{ journal_url }}">{{ entry.journal }}{% if entry.volume %} {{ entry.volume }}{% endif %}{% if entry.year %} ({{ entry.year }}){% endif %}{% if entry.pages %} {{ entry.pages }}{% endif %}</a>
           {%- endif -%}
-          {%- unless arxiv_id or journal_url %}
+          {%- unless arxiv_id or journal_url or entry.zenodo %}
           <a href="{{ entry.html }}">Paper</a>
           {%- endunless %}
         </div>
