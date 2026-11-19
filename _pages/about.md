@@ -13,11 +13,9 @@ years: [2019, 2020, 2021, 2022, 2023, 2025, 2026]
 social: true  # includes social icons at the bottom of the page
 ---
 
-Hello!
+I am Tanvi, a postdoctoral researcher at Stanford University, where I use machine learning to study the smallest building blocks of nature. My research has three threads: how to get more out of collider data, by correcting it for detector effects without throwing information away; how to make large machine learning models small and fast enough to run on the hardware that decides, in microseconds, which collisions the LHC keeps; and how foundation models work for physics — what inductive biases a network should have built in, and what it learns on its own when given enough data.
 
-I am a postdoctoral researcher in the Physics Department at Stanford University, working in the <a href="https://nachmangroup.stanford.edu/">Nachman Group</a>. My research focuses on the intersection of machine learning and particle physics, where I develop ML-driven methods for particle and nuclear physics analyses. I am also a member of the ATLAS Collaboration at the Large Hadron Collider.
-
-Previously, I was a postdoctoral researcher at Argonne National Laboratory, where I worked on the upgrade of the ATLAS tracker for the High Luminosity LHC. With a background in detector development—especially silicon tracking and timing—I bring an experimentalist’s perspective to building ML methods that work in real-world settings.
+Before Stanford, I was a postdoc at UC Berkeley and Argonne National Lab, and I did my PhD at Northeastern University on the CMS experiment. Along the way I’ve worked with a lot of amazing scientists and students, and that’s one of my favourite parts of the job.
 
 <!-- I am interested in developing and applying machine learning techniques and tools to make new discoveries in particle physics and improve our understanding of the fundamental nature of our universe. As a member of the ATLAS collaboration, I work on developing and implementing machine learning methods to study data from the ATLAS experiment at the Large Hadron Collider.  -->
 
@@ -31,11 +29,11 @@ My work is centred at the development and application of machine learning based 
 
 <!-- I earned my Ph.D. in Physics from Northeastern University as part of the high-energy physics group, under the supervision of Prof. Toyoko Orimoto. My research focused on developing and leading a novel search for the exotic decay of the Higgs boson into light pseudoscalars using photons, utilizing data from the CMS experiment. This analysis—the first of its kind at CMS—explored an extremely rare and experimentally challenging Higgs boson decay. -->
 
-I enjoy working on challenging, interdisciplinary problems and building tools that make scientific workflows faster and more effective. In addition to my research projects, I enjoy learning new software tools to improve the efficiency and speed of my analyses and research work.
+I enjoy challenging, interdisciplinary problems and building tools that make scientific work faster and better. I’m also always picking up new software tools to speed up my own analyses.
 <!-- As an experimentalist, I am excited by the prospect of exploring new research areas and thrive on tackling new challenges. -->
 
 
-I am always happy to interact and collaborate on potential projects, ideas, and analyses. Feel free to shoot me an email if you want to get in touch!
+I’m always happy to talk about potential projects, ideas, and analyses. Feel free to shoot me an email if you want to get in touch!
 
 
 <!-- Work in Progress. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
