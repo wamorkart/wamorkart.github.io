@@ -3,7 +3,7 @@ layout: page
 permalink: /books/
 title: Books
 description: I enjoy reading books and am documenting some recommendations here -- (Last Updated  January 28, 2024)
-nav: true
+nav: false
 nav_order: 4
 ---
 <!-- # Reference code - https://github.com/cagrimmett/jekyll-tools/tree/master/reading-list -->
