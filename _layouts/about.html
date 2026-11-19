@@ -44,6 +44,7 @@ layout: default
         </tr>
       </table>
 
+      <div style="max-height:11em;overflow-y:auto;">
       <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
         {%- assign news_items = site.news | reverse -%}
         {%- assign news_limit = site.news_limit | default: news_items.size -%}
@@ -62,6 +63,7 @@ layout: default
         </tr>
         {%- endfor -%}
       </table>
+      </div>
 
       <br>
 
