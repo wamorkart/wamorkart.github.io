@@ -13,7 +13,7 @@ years: [2019, 2020, 2021, 2022, 2023, 2025, 2026]
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am Tanvi, a postdoctoral researcher at Stanford University, where I use machine learning to study the smallest building blocks of nature. My research has three threads: how to get more out of collider data, by correcting it for detector effects without throwing information away; how to make large machine learning models small and fast enough to run on the hardware that decides, in microseconds, which collisions the LHC keeps; and how foundation models work for physics — what inductive biases a network should have built in, and what it learns on its own when given enough data.
+I am Tanvi, a postdoctoral researcher at Stanford University, where I use machine learning to study the smallest building blocks of nature. My research has three threads: how to get more out of collider data, by correcting it for detector effects without throwing information away; how to make large machine learning models small and fast enough to run on the hardware that decides, in microseconds, which collisions the LHC keeps; and how foundation models work for physics — what inductive biases a network should have built in, and what it learns on its own when given enough data. I am a member of the ATLAS and H1 Collaborations.
 
 Before Stanford, I was a postdoc at UC Berkeley and Argonne National Lab, and I did my PhD at Northeastern University on the CMS experiment. Along the way I’ve worked with a lot of amazing scientists and students, and that’s one of my favourite parts of the job.
 
