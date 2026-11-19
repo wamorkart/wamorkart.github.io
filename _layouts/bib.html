@@ -96,25 +96,32 @@
             {%- endif -%}
         </div>
 
-        <!-- Link to the paper: arXiv number if available, else DOI, else the html link -->
-        {%- assign paper_url = nil -%}
-        {%- assign paper_label = nil -%}
+        <!-- Links: arXiv number, and journal reference when published -->
         {%- assign arxiv_id = entry.eprint | default: entry.arxiv -%}
         {%- assign doi_id = entry.doi | remove: 'https://doi.org/' -%}
-        {%- if arxiv_id -%}
-          {%- assign paper_url = arxiv_id | prepend: 'https://arxiv.org/abs/' -%}
-          {%- assign paper_label = arxiv_id | prepend: 'arXiv:' -%}
-        {%- elsif entry.doi -%}
-          {%- assign paper_url = doi_id | prepend: 'https://doi.org/' -%}
-          {%- if entry.html -%}{%- assign paper_url = entry.html -%}{%- endif -%}
-          {%- assign paper_label = doi_id | prepend: 'doi:' -%}
-        {%- elsif entry.html -%}
-          {%- assign paper_url = entry.html -%}
-          {%- assign paper_label = 'Paper' -%}
+        {%- assign journal_url = nil -%}
+        {%- if entry.journal -%}
+          {%- if entry.html and entry.html contains 'arxiv.org' -%}
+            {%- assign journal_url = nil -%}
+          {%- elsif entry.html -%}
+            {%- assign journal_url = entry.html -%}
+          {%- endif -%}
+          {%- if journal_url == nil and entry.doi -%}
+            {%- assign journal_url = doi_id | prepend: 'https://doi.org/' -%}
+          {%- endif -%}
         {%- endif -%}
-        {%- if paper_url %}
+        {%- if arxiv_id or journal_url or entry.html %}
         <div class="links">
-          <a href="{{ paper_url }}">{{ paper_label }}</a>
+          {%- if arxiv_id %}
+          <a href="https://arxiv.org/abs/{{ arxiv_id }}">arXiv:{{ arxiv_id }}</a>
+          {%- endif -%}
+          {%- if arxiv_id and journal_url %} &middot; {% endif -%}
+          {%- if journal_url %}
+          <a href="{{ journal_url }}">{{ entry.journal }}{% if entry.volume %} {{ entry.volume }}{% endif %}{% if entry.year %} ({{ entry.year }}){% endif %}{% if entry.pages %} {{ entry.pages }}{% endif %}</a>
+          {%- endif -%}
+          {%- unless arxiv_id or journal_url %}
+          <a href="{{ entry.html }}">Paper</a>
+          {%- endunless %}
         </div>
         {%- endif %}
         </div>
