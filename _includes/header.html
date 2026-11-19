@@ -5,7 +5,6 @@
       <a href="{{ '/' | relative_url }}#news">News</a>
       <a href="{{ '/' | relative_url }}#publications">Publications</a>
       <!-- <a href="{{ '/' | relative_url }}#blog">blog</a> -->
-      <a href="{{ '/assets/pdf/cv.pdf' | relative_url }}" target="_blank">CV</a>
       {%- assign sorted_pages = site.pages | sort: "nav_order" -%}
       {%- for p in sorted_pages -%}
         {%- if p.nav and p.autogen == nil -%}
