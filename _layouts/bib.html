@@ -112,7 +112,9 @@
         {%- endif -%}
         {%- if arxiv_id or journal_url or entry.html %}
         <div class="links">
-          {%- if arxiv_id %}
+          {%- if entry.zenodo %}
+          <a href="https://zenodo.org/records/{{ entry.zenodo }}">Zenodo:{{ entry.zenodo }}</a>
+          {%- elsif arxiv_id %}
           <a href="https://arxiv.org/abs/{{ arxiv_id }}">arXiv:{{ arxiv_id }}</a>
           {%- endif -%}
           {%- if arxiv_id and journal_url %} &middot; {% endif -%}
