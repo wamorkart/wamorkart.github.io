@@ -96,20 +96,25 @@
             {%- endif -%}
         </div>
 
-        <!-- Link to the paper: html, else arXiv, else DOI -->
+        <!-- Link to the paper: arXiv number if available, else DOI, else the html link -->
         {%- assign paper_url = nil -%}
-        {%- if entry.html -%}
-          {%- assign paper_url = entry.html -%}
-        {%- elsif entry.eprint -%}
-          {%- assign paper_url = entry.eprint | prepend: 'https://arxiv.org/abs/' -%}
-        {%- elsif entry.arxiv -%}
-          {%- assign paper_url = entry.arxiv | prepend: 'https://arxiv.org/abs/' -%}
+        {%- assign paper_label = nil -%}
+        {%- assign arxiv_id = entry.eprint | default: entry.arxiv -%}
+        {%- assign doi_id = entry.doi | remove: 'https://doi.org/' -%}
+        {%- if arxiv_id -%}
+          {%- assign paper_url = arxiv_id | prepend: 'https://arxiv.org/abs/' -%}
+          {%- assign paper_label = arxiv_id | prepend: 'arXiv:' -%}
         {%- elsif entry.doi -%}
-          {%- assign paper_url = entry.doi | remove: 'https://doi.org/' | prepend: 'https://doi.org/' -%}
+          {%- assign paper_url = doi_id | prepend: 'https://doi.org/' -%}
+          {%- if entry.html -%}{%- assign paper_url = entry.html -%}{%- endif -%}
+          {%- assign paper_label = doi_id | prepend: 'doi:' -%}
+        {%- elsif entry.html -%}
+          {%- assign paper_url = entry.html -%}
+          {%- assign paper_label = 'Paper' -%}
         {%- endif -%}
         {%- if paper_url %}
         <div class="links">
-          <a href="{{ paper_url }}">Paper</a>
+          <a href="{{ paper_url }}">{{ paper_label }}</a>
         </div>
         {%- endif %}
         </div>
